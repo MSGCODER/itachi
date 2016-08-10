@@ -11,8 +11,24 @@
 * 笔者使用gradle作为包(依赖库等)管理工具
 * 笔者不会在markdown里添加图片,抱歉
 * 笔者有时可能比较啰嗦,抱歉
+* 笔者不喜欢写页面,该Project返回的可能只有JSON
 
 ## 开发的步骤(由于笔者时间有限,只是大致步骤)
 * 使用IntelliJ创建一个gradle工程(点选java web选项).当然,你可以直接使用git下载笔者的Project,然后使用IntelliJ打开即可.
 * 在build.gradle文件中添加该Project所依赖的jar包,参见笔者的build.gradle文件;然后使用gradle下载更新依赖的jar包.(以后每次更改build.gradle文件都要使用gradle更新依赖的jar包)
 
+
+## 搭建数据库环境(mysql)
+### 安装mysql,然后启动mysql
+### 使用root用户登录(刚安装完mysql,root没有密码)
+  $:mysql -uroot
+### 创建数据库并使用UTF-8编码
+  mysql> CREATE DATABASE itachi DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+### 创建用户
+  mysql> CREATE USER 'itachi'@'localhost' IDENTIFIED BY 'youshenbubai'; 
+  mysql> CREATE USER 'itachi'@'%' IDENTIFIED BY 'youshenbubai';   (如果mysql不在你本机执行该语句)
+### 给用户授权(此处将数据库itachi的所有表的全部权限都给了itachi这个用户)
+  mysql> GRANT all ON itachi.* TO 'itachi'@'localhost'; 
+  mysql> GRANT all ON itachi.* TO 'itachi'@'%';
+
+# 未完待续...
