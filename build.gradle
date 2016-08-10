@@ -1,0 +1,19 @@
+group 'itachi'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+apply plugin: 'war'
+
+sourceCompatibility = 1.8
+
+repositories {
+    // 下面是我们公司内网的maven库,不能访问的话请忽略,直接写mavenCentral()
+    maven {
+        url "http://nexus.aiztone.tech/content/groups/public"
+    }
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+}
