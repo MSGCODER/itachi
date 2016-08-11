@@ -25,10 +25,10 @@
 ### 创建数据库并使用UTF-8编码
   mysql> CREATE DATABASE itachi DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 ### 创建用户
-  mysql> CREATE USER 'itachi'@'localhost' IDENTIFIED BY 'youshenbubai'; 
+  mysql> CREATE USER 'itachi'@'localhost' IDENTIFIED BY 'youshenbubai';  
   mysql> CREATE USER 'itachi'@'%' IDENTIFIED BY 'youshenbubai';   (如果mysql不在你本机执行该语句)
 ### 给用户授权(此处将数据库itachi的所有表的全部权限都给了itachi这个用户)
-  mysql> GRANT all ON itachi.* TO 'itachi'@'localhost'; 
+  mysql> GRANT all ON itachi.* TO 'itachi'@'localhost';  
   mysql> GRANT all ON itachi.* TO 'itachi'@'%';
 
 # 未完待续...
