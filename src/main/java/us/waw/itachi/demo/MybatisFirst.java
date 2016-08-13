@@ -7,23 +7,26 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Created by lenn on 16/8/10.
  */
-public class TestMybatis {
+public class MybatisFirst {
     public static void main(String[] args) throws IOException {
         String resource = "mybatis-config.xml";
         InputStream inputStream = Resources.getResourceAsStream(resource);
         SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
 
-        SqlSession session = sqlSessionFactory.openSession();
-        try {
-            // 拿到session,做你想做的
-            // ...
-            System.out.println(session);
-        } finally {
-            session.close();
+        try(SqlSession session = sqlSessionFactory.openSession()) {
+            List<Map<String, Object>> result = session.selectList("us.waw.itachi.selectUser");
+            result.forEach(row -> {
+                System.out.println("---------------");
+                row.forEach((columnName, value) -> {
+                    System.out.printf("columnName=%s, value=%s%n", columnName, value);
+                });
+            });
         }
     }
 }
