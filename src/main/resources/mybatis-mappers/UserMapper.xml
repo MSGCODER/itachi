@@ -4,6 +4,10 @@
     <select id="selectUser" resultType="hashmap">
         SELECT * from user
     </select>
+
+    <select id="selectUserById" resultType="hashmap">
+        SELECT * FROM user where id = {#id}
+    </select>
     <!--<cache-->
     
 </mapper>
