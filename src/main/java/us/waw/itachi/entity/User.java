@@ -54,4 +54,14 @@ public class User {
     public void setSex(Integer sex) {
         this.sex = sex;
     }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "sex=" + sex +
+                ", nickname='" + nickname + '\'' +
+                ", username='" + username + '\'' +
+                ", id=" + id +
+                '}';
+    }
 }

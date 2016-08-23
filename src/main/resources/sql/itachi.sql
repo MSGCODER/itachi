@@ -1,0 +1,6 @@
+CREATE TABLE user(
+  id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  username VARCHAR(20) NOT NUll,
+  nickname VARCHAR(20),
+  sex INT DEFAULT '1'
+);
