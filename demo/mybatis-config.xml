@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<!-- mybatis的XML配置文件, 详情可参考: http://www.mybatis.org/mybatis-3/zh/configuration.html -->
+
+<configuration>
+    <!-- 1. properties: 这些属性都是可外部配置且可动态替换的，既可以在典型的 Java 属性文件中配置，亦可通过 properties 元素的子元素来传递。 -->
+    <properties resource="db.properties">
+        <property name="username" value="itachi"/>
+        <property name="password" value="youshenbubai"/>
+    </properties>
+
+    <!-- 2. settings: 这是 MyBatis 中极为重要的调整设置，它们会改变 MyBatis 的运行时行为. 一个完整的settings元素如下: -->
+    <settings>
+        <setting name="cacheEnabled" value="true"/>
+        <setting name="lazyLoadingEnabled" value="true"/>
+        <setting name="multipleResultSetsEnabled" value="true"/>
+        <setting name="useColumnLabel" value="true"/>
+        <setting name="useGeneratedKeys" value="false"/>
+        <setting name="autoMappingBehavior" value="PARTIAL"/>
+        <setting name="autoMappingUnknownColumnBehavior" value="WARNING"/>
+        <setting name="defaultExecutorType" value="SIMPLE"/>
+        <setting name="defaultStatementTimeout" value="25"/>
+        <setting name="defaultFetchSize" value="100"/>
+        <setting name="safeRowBoundsEnabled" value="false"/>
+        <setting name="mapUnderscoreToCamelCase" value="false"/>
+        <setting name="localCacheScope" value="SESSION"/>
+        <setting name="jdbcTypeForNull" value="OTHER"/>
+        <setting name="lazyLoadTriggerMethods" value="equals,clone,hashCode,toString"/>
+    </settings>
+
+    <!-- 3. typeAliases: 类型别名是为 Java 类型设置一个短的名字。它只和 XML 配置有关，
+        存在的意义仅在于用来减少类完全限定名的冗余。 -->
+    <!--<typeAliases>-->
+        <!--<typeAlias alias="Author" type="domain.blog.Author"/>-->
+        <!--<typeAlias alias="Blog" type="domain.blog.Blog"/>-->
+        <!--<typeAlias alias="Comment" type="domain.blog.Comment"/>-->
+        <!--<typeAlias alias="Post" type="domain.blog.Post"/>-->
+        <!--<typeAlias alias="Section" type="domain.blog.Section"/>-->
+        <!--<typeAlias alias="Tag" type="domain.blog.Tag"/>-->
+    <!--</typeAliases>-->
+
+    <!-- 4. typeHandlers: 无论是 MyBatis 在预处理语句（PreparedStatement）中设置一个参数时，还是从结果集中取出一个值时，
+    都会用类型处理器将获取的值以合适的方式转换成 Java 类型。下表描述了一些默认的类型处理器。
+    你可以重写类型处理器或创建你自己的类型处理器来处理不支持的或非标准的类型。
+    具体做法为：实现 org.apache.ibatis.type.TypeHandler 接口，
+    或继承一个很便利的类 org.apache.ibatis.type.BaseTypeHandler， 然后可以选择性地将它映射到一个 JDBC 类型。  -->
+
+    <!-- 5. objectFactory: 对象工厂,MyBatis 每次创建结果对象的新实例时，它都会使用一个对象工厂（ObjectFactory）实例来完成。
+     默认的对象工厂需要做的仅仅是实例化目标类，要么通过默认构造方法，要么在参数映射存在的时候通过参数构造方法来实例化。
+      如果想覆盖对象工厂的默认行为，则可以通过创建自己的对象工厂来实现。 -->
+
+    <!-- 6. plugins: 插件, MyBatis 允许你在已映射语句执行过程中的某一点进行拦截调用。 -->
+
+    <!-- 7. environments: 环境配置,MyBatis 可以配置成适应多种环境，这种机制有助于将 SQL 映射应用于多种数据库之中， 现实情况下有多种理由需要这么做。  -->
+
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="${driver}"/>
+                <property name="url" value="${url}"/>
+                <property name="username" value="${username}"/>
+                <property name="password" value="${password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <mappers>
+        <!--<mapper resource="org/mybatis/example/BlogMapper.xml"/>-->
+        <mapper resource="mybatis-mappers/UserMapper.xml"/>
+    </mappers>
+</configuration>

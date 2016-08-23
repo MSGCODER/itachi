@@ -2,6 +2,7 @@ package us.waw.itachi.entity;
 
 /**
  * Created by lenn on 16/8/22.
+ * 用户实体类
  */
 public class User {
     private Integer id;
