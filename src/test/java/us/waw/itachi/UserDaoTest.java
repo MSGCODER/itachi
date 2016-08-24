@@ -36,4 +36,17 @@ public class UserDaoTest {
            System.out.println(user);
         }
     }
+
+    @Test
+    public void saveUser(){
+        User user = new User("比鲁斯", "破坏神", 20);
+        int affectLineNumber = userDao.saveUser(user);
+        System.out.println(affectLineNumber);
+    }
+
+    @Test
+    public void deleteUserByUsername(){
+        int affectLineNumber = userDao.deleteUserByUsername("比克");
+        System.out.println(affectLineNumber);
+    }
 }
