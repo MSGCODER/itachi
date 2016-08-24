@@ -34,12 +34,13 @@
     <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <property name="dataSource" ref="dataSource"/>
     </bean>
+    <tx:annotation-driven transaction-manager="transactionManager"/>
 
+    <!-- 利用mybatis-spring框架做映射 -->
     <bean id="userDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
         <property name="mapperInterface" value="us.waw.itachi.dao.UserDao"/>
         <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
     </bean>
-    <tx:annotation-driven transaction-manager="transactionManager"/>
 
     <!--<mvc:annotation-driven/>-->
     <!--<context:annotation-config/>-->

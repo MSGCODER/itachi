@@ -12,6 +12,7 @@
 * 笔者不会在markdown里添加图片,抱歉
 * 笔者有时可能比较啰嗦,抱歉
 * 笔者不喜欢写页面,该Project返回的可能只有JSON
+* 表结构参见src/main/java/resource/sql/itachi.sql
 
 ## 开发的步骤(由于笔者时间有限,只是大致步骤)
 * 使用IntelliJ创建一个gradle工程(点选java web选项).当然,你可以直接使用git下载笔者的Project,然后使用IntelliJ打开即可.
@@ -30,31 +31,13 @@
 ### 给用户授权(此处将数据库itachi的所有表的全部权限都给了itachi这个用户)
   mysql> GRANT all ON itachi.* TO 'itachi'@'localhost';  
   mysql> GRANT all ON itachi.* TO 'itachi'@'%';
-### 创建一个测试的表,并插入两条数据
-  mysql> create table user(  
-          	id int(11) not null auto_increment,  
-          	name varchar(20) not null,  
-          	age int(11) not null,  
-          	primary key(id)  
-       );  
-  msyql> insert into user(name, age) values('tom', 10);  
-  msyql> insert into user(name, age) values('jim', 11);  
 
-## 编写mybatis配置文件mybatis-config.xml以及映射文件XXX.xml(笔者的叫UserMapper.xml)
-  mybatis-config.xml: 笔者写的有点多,请无视.简单的demo只需要配置数据库链接就行:即environments  
-  UserMapper.xml: 里面实现了一个最简单的例子
+### 创建相应的表
 
-## 编写java代码
-  参见us.waw.itachi.demo.TestMybatis
-  
-  运行输出:  
-  ---------------  
-  columnName=name, value=tom  
-  columnName=id, value=1  
-  columnName=age, value=10  
-  ---------------  
-  columnName=name, value=jim  
-  columnName=id, value=2  
-  columnName=age, value=11  
-  
-# 未完待续...
+## 编写测试代码
+
+### 添加mybatis-spring的jar包(在build.gradle里面)
+### 在applicationContext.xml中整合spring和mybatis
+### 编写映射器接口UserDao.java以及测试代码UserDaoTest.java
+
+**使用注解的方式编写sql语句,方便是挺方便,有些事情感觉做不了啊.还是转换成xml映射的方式来做吧**
