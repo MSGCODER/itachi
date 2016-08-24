@@ -24,6 +24,16 @@ public class Product {
     public Product() {
     }
 
+    public Product(String name, String description, Double price,
+                   Category category, Boolean isOffShelf, Date createDateTime) {
+        this.name = name;
+        this.description = description;
+        this.price = price;
+        this.category = category;
+        this.isOffShelf = isOffShelf;
+        this.createDateTime = createDateTime;
+    }
+
     public Product(Integer id, String name, String description, Double price,
                    Category category, Boolean isOffShelf, Date createDateTime) {
         this.id = id;
@@ -89,5 +99,18 @@ public class Product {
 
     public void setCreateDateTime(Date createDateTime) {
         this.createDateTime = createDateTime;
+    }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", price=" + price +
+                ", category=" + category +
+                ", isOffShelf=" + isOffShelf +
+                ", createDateTime=" + createDateTime +
+                '}';
     }
 }

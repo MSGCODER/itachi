@@ -1,12 +1,11 @@
 package us.waw.itachi;
 
-import org.apache.ibatis.session.SqlSession;
-import org.apache.ibatis.session.SqlSessionFactory;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import us.waw.itachi.dao.ProductDao;
 import us.waw.itachi.dao.UserDao;
 import us.waw.itachi.entity.User;
 
@@ -39,9 +38,10 @@ public class UserDaoTest {
 
     @Test
     public void saveUser(){
-        User user = new User("比鲁斯", "破坏神", 20);
+        User user = new User("鼬神", "木叶忍者", 17);
         int affectLineNumber = userDao.saveUser(user);
         System.out.println(affectLineNumber);
+        System.out.println(user);
     }
 
     @Test

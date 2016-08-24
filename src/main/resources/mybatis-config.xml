@@ -5,8 +5,12 @@
 
 <!-- mybatis的XML配置文件, 详情可参考: http://www.mybatis.org/mybatis-3/zh/configuration.html -->
 <configuration>
-    <mappers>
-        <!--<mapper resource="org/mybatis/example/BlogMapper.xml"/>-->
-        <mapper resource="mybatis-mappers/UserMapper.xml"/>
-    </mappers>
+    <typeAliases>
+        <package name="us.waw.itachi.entity"/>
+    </typeAliases>
+
+    <!--<mappers>-->
+        <!--&lt;!&ndash;<mapper resource="org/mybatis/example/BlogMapper.xml"/>&ndash;&gt;-->
+        <!--<mapper resource="mybatis-mybatis-mappers/UserMapper.xml"/>-->
+    <!--</mappers>-->
 </configuration>

@@ -68,6 +68,6 @@
     </environments>
     <mappers>
         <!--<mapper resource="org/mybatis/example/BlogMapper.xml"/>-->
-        <mapper resource="mybatis-mappers/UserMapper.xml"/>
+        <mapper resource="mybatis-mybatis-mappers/UserMapper.xml"/>
     </mappers>
 </configuration>
