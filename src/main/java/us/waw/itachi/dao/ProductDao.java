@@ -7,4 +7,6 @@ import us.waw.itachi.entity.Product;
  */
 public interface ProductDao {
     int saveProduct(Product product);
+
+    Product getProductById(int id);
 }

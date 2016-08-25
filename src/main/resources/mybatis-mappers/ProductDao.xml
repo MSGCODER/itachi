@@ -9,4 +9,23 @@
         VALUES (#{name}, #{description}, #{price}, #{category.id}, #{isOffShelf}, #{createDateTime});
     </insert>
 
+    <select id="getProductById" parameterType="int" resultMap="productItemMap">
+        SELECT * FROM product WHERE id=#{id}
+    </select>
+
+    <select id="selectCategory" resultType="category">
+        SELECT * FROM category WHERE id=#{id}
+    </select>
+
+    <resultMap id="productItemMap" type="product">
+        <id property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="description" column="description"/>
+        <result property="price" column="price"/>
+        <result property="isOffShelf" column="is_off_shelf"/>
+        <result property="createDateTime" column="create_date_time"/>
+        <!-- 多对一 或者 一对一 使用association做映射-->
+        <association property="category" column="category_id" javaType="category" select="selectCategory"/>
+    </resultMap>
+
 </mapper>
