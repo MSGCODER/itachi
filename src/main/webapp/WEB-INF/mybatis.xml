@@ -6,9 +6,9 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
        <bean id="dbConfig" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-              <property name="location">
-                     <value>classpath:db.properties</value>
-              </property>
+          <property name="location">
+             <value>classpath:db.properties</value>
+          </property>
        </bean>
 
        <!-- 配置c3p0数据源 -->
@@ -44,5 +44,10 @@
        <bean id="productDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
               <property name="mapperInterface" value="us.waw.itachi.dao.ProductDao"/>
               <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+       </bean>
+
+       <bean id="orderDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
+            <property name="mapperInterface" value="us.waw.itachi.dao.OrderDao"/>
+            <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
        </bean>
 </beans>

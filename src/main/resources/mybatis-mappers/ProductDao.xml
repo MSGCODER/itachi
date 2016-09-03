@@ -27,5 +27,4 @@
         <!-- 多对一 或者 一对一 使用association做映射-->
         <association property="category" column="category_id" javaType="category" select="selectCategory"/>
     </resultMap>
-
 </mapper>

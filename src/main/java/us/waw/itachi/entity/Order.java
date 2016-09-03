@@ -13,7 +13,31 @@ public class Order {
 
     private User user;
 
-    private List<Product> product;
+    private Product product;
 
+    public Order() {
+    }
 
+    public Order(String orderNo, User user, Product product) {
+        this.orderNo = orderNo;
+        this.user = user;
+        this.product = product;
+    }
+
+    public Order(Integer id, String orderNo, User user, Product product) {
+        this.id = id;
+        this.orderNo = orderNo;
+        this.user = user;
+        this.product = product;
+    }
+
+    @Override
+    public String toString() {
+        return "Order{" +
+                "id=" + id +
+                ", orderNo='" + orderNo + '\'' +
+                ", user=" + user +
+                ", product=" + product +
+                '}';
+    }
 }

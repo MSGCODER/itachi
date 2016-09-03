@@ -19,6 +19,5 @@
     <delete id="deleteUserByUsername" parameterType="string">
         DELETE FROM user WHERE username=#{username}
     </delete>
-    <!--<cache-->
 
 </mapper>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="us.waw.itachi.dao.OrderDao">
+
+    <select id="getOrderById" parameterType="int" resultMap="OrderItemMap">
+        SELECT orders.id as id, orders.order_no as order_no,
+          user.id as user_id,
+          user.username as username,
+          user.nickname as nickname,
+          user.sex as sex,
+          product.id as product_id,
+          product.name as product_name,
+          product.description as description,
+          product.price as price,
+          product.is_off_shelf as is_off_shelf,
+          product.create_date_time as ceate_date_time
+         FROM orders, user, product WHERE orders.id=#{id}
+        AND orders.user_id=user.id AND orders.product_id=product.id;
+    </select>
+
+    <select id="selectCategory" resultType="category">
+        SELECT * FROM category WHERE id=#{id}
+    </select>
+
+    <resultMap id="OrderItemMap" type="order">
+        <id property="id" column="id"/>
+        <result property="orderNo" column="order_no"/>
+
+        <association property="user" javaType="user">
+            <id property="id" column="user_id" />
+            <result property="username" column="username"/>
+            <result property="nickname" column="nickname"/>
+            <result property="sex" column="sex"/>
+        </association>
+
+        <association property="product" javaType="product">
+            <id property="id" column="product_id"/>
+            <result property="name" column="product_name"/>
+            <result property="description" column="description"/>
+            <result property="price" column="price"/>
+            <result property="isOffShelf" column="is_off_shelf"/>
+            <result property="createDateTime" column="create_date_tim"/>
+        </association>
+    </resultMap>
+</mapper>
